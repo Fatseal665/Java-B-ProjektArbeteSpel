@@ -4,7 +4,6 @@ import se.martin.game.models.Burglar;
 import se.martin.game.models.Entity;
 import se.martin.game.models.Resident;
 
-import java.util.Scanner;
 
 public class Game {
 
