@@ -10,16 +10,19 @@ public class Game {
     static Scanner scanner = new Scanner(System.in);
     static boolean running = true;
 
+    static Resident resident = new Resident(50, 10, "Resident");
+    static Burglar burglar = new Burglar(50, 15, "Burglar");
+
     //Game start method
     public static  void start() {
         printWelcomeMessage();
         Room.livingRoom();
-        menyInput();
+        menuInput();
     }
 
 
     //Meny methods
-    public static void printMeny() {
+    public static void printMenu() {
         System.out.println("Which room do you want to go to?\n");
         System.out.println("               ↑");
         System.out.println("             Bedroom");
@@ -29,7 +32,7 @@ public class Game {
         System.out.println("Exit game X\n");
     }
 
-    public static void menyInput() {
+    public static void menuInput() {
         while (running) {
 
             String userInput = scanner.nextLine().toLowerCase();
@@ -66,9 +69,6 @@ public class Game {
 
 
     //Fight Methods
-    static Resident resident = new Resident(50, 10, "Resident");
-    static Burglar burglar = new Burglar(50, 15, "Burglar");
-
     static void executeAttack(Entity Attacker, Entity Defender) {
         Attacker.punch(Defender);
         System.out.println(Attacker.getRole() + " hits " + Defender.getRole());

@@ -4,7 +4,7 @@ import static se.martin.game.Game.*;
 
 public class Room {
 
-    private static final String LIVINGROOM = "livingRoom";
+    private static final String LIVING_ROOM = "livingRoom";
     private static final String BEDROOM = "bedroom";
     private static final String KITCHEN = "kitchen";
     private static final String HALLWAY = "hallway";
@@ -16,10 +16,10 @@ public class Room {
 
 
     public static void livingRoom() {
-        if (!currentLocation.equals(LIVINGROOM)) {
-            currentLocation = LIVINGROOM;
+        if (!currentLocation.equals(LIVING_ROOM)) {
+            currentLocation = LIVING_ROOM;
             System.out.println("\nYou are now in the living room");
-            printMeny();
+            printMenu();
 
         } else {
             System.out.println("You can't go there right now\n");
@@ -31,7 +31,7 @@ public class Room {
         Room.currentLocation = HALLWAY;
 
         if (burglar.isConscious()) {
-            System.out.println("You have spotted the source of the strange noises. A burglar is standing in the hallway!");
+            System.out.println("\nYou have spotted the source of the strange noises. A burglar is standing in the hallway!");
 
             boolean fighting = true;
             while (fighting && resident.isConscious() && burglar.isConscious()) {
@@ -69,16 +69,16 @@ public class Room {
 
 
     public static void hallway() {
-        if (currentLocation.equals(LIVINGROOM)) {
+        if (currentLocation.equals(LIVING_ROOM)) {
             System.out.println("\nYou are now in the hallway");
             currentLocation = HALLWAY;
 
         } else if (currentLocation.equals(HALLWAY)) {
 
-            //Hallway meny. Appears when burglar is unconscious
-            boolean hallwayMeny = true;
+            //Hallway menu. Appears when burglar is unconscious
+            boolean hallwayMenu = true;
 
-            while (hallwayMeny) {
+            while (hallwayMenu) {
                 System.out.println("What do you want to do?\n");
                 System.out.println("1. Examine front door\n2. Go back to living room");
 
@@ -90,7 +90,7 @@ public class Room {
                     }
                     case "living room" -> {
                         Room.livingRoom();
-                        hallwayMeny = false;
+                        hallwayMenu = false;
                     }
                     default -> System.out.println("Invalid choice\n");
                 }
@@ -103,17 +103,17 @@ public class Room {
 
 
     public static void office() {
-        if (currentLocation.equals(LIVINGROOM)) {
+        if (currentLocation.equals(LIVING_ROOM)) {
             System.out.println("\nYou are now in the office");
             currentLocation = OFFICE;
         } else {
             System.out.println("You can't go there right now\n");
         }
 
-        //Office meny
-        boolean officeMeny = true;
+        //Office menu
+        boolean officeMenu = true;
 
-        while (officeMeny) {
+        while (officeMenu) {
             System.out.println("What do you want to do?\n");
             System.out.println("1. Take a seat in the office chair\n2. Look inside drawer\n3. Use the phone to call someone\n4. Go back to living room");
 
@@ -127,13 +127,13 @@ public class Room {
 
                     } else {
                         printEndMessage();
-                        officeMeny = false;
+                        officeMenu = false;
                         running = false;
                     }
                 }
                 case "living room" -> {
                     Room.livingRoom();
-                    officeMeny = false;
+                    officeMenu = false;
                 }
                 default -> System.out.println("Invalid choice\n");
             }
@@ -142,17 +142,17 @@ public class Room {
 
 
     public static void bedroom() {
-        if (currentLocation.equals(LIVINGROOM)) {
+        if (currentLocation.equals(LIVING_ROOM)) {
             currentLocation = BEDROOM;
             System.out.println("\nYou are now in the bedroom");
         } else {
             System.out.println("You can't go there right now\n");
         }
 
-        //Bedroom meny
-        boolean bedroomMeny = true;
+        //Bedroom menu
+        boolean bedroomMenu = true;
 
-        while (bedroomMeny) {
+        while (bedroomMenu) {
             System.out.println("What do you want to do?\n");
             System.out.println("1. Sit on bed\n2. Go back to living room");
 
@@ -161,7 +161,7 @@ public class Room {
                 case "sit on bed" -> System.out.println("*Sits on bed*");
                 case "living room" -> {
                     Room.livingRoom();
-                    bedroomMeny = false;
+                    bedroomMenu = false;
                 }
                 default -> System.out.println("Invalid choice\n");
             }
@@ -170,17 +170,17 @@ public class Room {
 
 
     public static void kitchen() {
-        if (currentLocation.equals(LIVINGROOM)) {
+        if (currentLocation.equals(LIVING_ROOM)) {
             System.out.println("\nYou are now in the kitchen");
             currentLocation = KITCHEN;
         } else {
             System.out.println("You can't go there right now\n");
         }
 
-        //Kitchen meny
-        boolean kitchenMeny = true;
+        //Kitchen menu
+        boolean kitchenMenu = true;
 
-        while (kitchenMeny) {
+        while (kitchenMenu) {
             System.out.println("What do you want to do?\n");
             System.out.println("1. Eat leftovers\n2. Pick up frying pan\n3. Go back to living room");
 
@@ -202,7 +202,7 @@ public class Room {
                 }
                 case "living room" -> {
                     Room.livingRoom();
-                    kitchenMeny = false;
+                    kitchenMenu = false;
                 }
                 default -> System.out.println("Invalid choice\n");
             }
