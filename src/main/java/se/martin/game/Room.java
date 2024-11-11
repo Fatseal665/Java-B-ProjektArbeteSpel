@@ -45,7 +45,7 @@ public class Room {
                         System.out.println("Exiting game...");
                         running = false;
                     }
-                    default -> System.out.println("Invalid choice. Which room do you want to go to?");
+                    default -> System.out.println("\nInvalid choice. Which room do you want to go to?");
                 }
             }
 
@@ -186,7 +186,7 @@ public class Room {
 
             String inputBedroom = scanner.nextLine().toLowerCase();
             switch (inputBedroom) {
-                case "sit on bed" -> System.out.println("*Sits on bed*");
+                case "sit on bed" -> System.out.println("*Sits on bed*\n");
                 case "living room" -> {
                     Room.livingRoom();
                     bedroomMenu = false;
@@ -221,8 +221,10 @@ public class Room {
                     if (fryingPanFound) {
                     System.out.println("\nYou picked up a frying pan!");
                     System.out.println("A great tool for cooking and a great weapon in times of need.");
-                    System.out.println("Resident damage increased from " + resident.getDamage() + " to 25\n");
+
+                    int previousDamage = resident.getDamage();
                     resident.setDamage(25);
+                    System.out.println("Resident damage increased from " + previousDamage + " to " + resident.getDamage() + "\n");
                     fryingPanFound = false;
                     } else {
                         System.out.println("You've already picked up the frying pan\n");
