@@ -11,46 +11,12 @@ public class Game {
     static boolean running = true;
 
     static Resident resident = new Resident(50, 10, "Resident");
-    static Burglar burglar = new Burglar(50, 15, "Burglar");
+    static Burglar burglar = new Burglar(50, 20, "Burglar");
 
     //Game start method
     public static  void start() {
         printWelcomeMessage();
         Room.livingRoom();
-        menuInput();
-    }
-
-
-    //Meny methods
-    public static void printMenu() {
-        System.out.println("Which room do you want to go to?\n");
-        System.out.println("               ↑");
-        System.out.println("             Bedroom");
-        System.out.println("← Kitchen* Living room *Office →");
-        System.out.println("             Hallway");
-        System.out.println("               ↓\n");
-        System.out.println("Exit game X\n");
-    }
-
-    public static void menuInput() {
-        while (running) {
-
-            String userInput = scanner.nextLine().toLowerCase();
-
-            switch (userInput) {
-                case "living room" -> Room.livingRoom();
-                case "bedroom" -> Room.bedroom();
-                case "kitchen" -> Room.kitchen();
-                case "hallway" -> Room.hallwayFight();
-                case "office" -> Room.office();
-
-                case "exit" -> {
-                    System.out.println("Exiting game...");
-                    running = false;
-                }
-                default -> System.out.println("Invalid choice. Which room do you want to go to?");
-            }
-        }
     }
 
 
@@ -68,13 +34,13 @@ public class Game {
     }
 
 
-    //Fight Methods
+    //Fighting Methods
     static void executeAttack(Entity Attacker, Entity Defender) {
         Attacker.punch(Defender);
         System.out.println(Attacker.getRole() + " hits " + Defender.getRole());
 
         if (Defender.isConscious()) {
-            System.out.println(Defender.getRole() + "'s health is: " + Defender.getHealth());
+            System.out.println(Defender.getRole() + "'s health is: " + Defender.getHealth() + "\n");
         } else {
             System.out.println(Defender.getRole()
                     + " has been knocked out\n");

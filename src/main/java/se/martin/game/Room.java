@@ -19,7 +19,35 @@ public class Room {
         if (!currentLocation.equals(LIVING_ROOM)) {
             currentLocation = LIVING_ROOM;
             System.out.println("\nYou are now in the living room");
-            printMenu();
+
+            //Visual menu
+            System.out.println("\nWhich room do you want to go to?\n");
+            System.out.println("               ↑");
+            System.out.println("             Bedroom");
+            System.out.println("← Kitchen* Living room *Office →");
+            System.out.println("             Hallway");
+            System.out.println("               ↓\n");
+            System.out.println("Exit game X\n");
+
+            //Living room menu
+            while (running) {
+
+                String userInput = scanner.nextLine().toLowerCase();
+
+                switch (userInput) {
+                    case "living room" -> Room.livingRoom();
+                    case "bedroom" -> Room.bedroom();
+                    case "kitchen" -> Room.kitchen();
+                    case "hallway" -> Room.hallwayFight();
+                    case "office" -> Room.office();
+
+                    case "exit" -> {
+                        System.out.println("Exiting game...");
+                        running = false;
+                    }
+                    default -> System.out.println("Invalid choice. Which room do you want to go to?");
+                }
+            }
 
         } else {
             System.out.println("You can't go there right now\n");
