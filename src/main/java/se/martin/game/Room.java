@@ -201,8 +201,7 @@ public class Room {
     }
 
 
-    public static void kitchen()
-    {
+    public static void kitchen() {
         if (currentLocation.equals(LIVING_ROOM)) {
             System.out.println("\nYou are now in the kitchen");
             currentLocation = KITCHEN;

@@ -7,7 +7,6 @@ import se.martin.game.models.Resident;
 
 public class Game {
 
-
     static Resident resident = new Resident(50, 10, "Resident");
     static Burglar burglar = new Burglar(50, 20, "Burglar");
 
