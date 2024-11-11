@@ -3,7 +3,7 @@ package se.martin.game.models;
 public abstract class Entity {
     private int health;
     private int damage;
-    private String role;
+    private final String role;
 
 
     public Entity(int health, int damage, String role) {
