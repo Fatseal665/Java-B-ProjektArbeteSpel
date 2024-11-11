@@ -1,5 +1,7 @@
 package se.martin.game;
 
+import java.util.Scanner;
+
 import static se.martin.game.Game.*;
 
 public class Room {
@@ -12,6 +14,8 @@ public class Room {
     private static final String START = "start";
     private static String currentLocation = START;
 
+    static Scanner scanner = new Scanner(System.in);
+    static boolean running = true;
     private static boolean fryingPanFound = true;
 
 
@@ -197,7 +201,8 @@ public class Room {
     }
 
 
-    public static void kitchen() {
+    public static void kitchen()
+    {
         if (currentLocation.equals(LIVING_ROOM)) {
             System.out.println("\nYou are now in the kitchen");
             currentLocation = KITCHEN;
