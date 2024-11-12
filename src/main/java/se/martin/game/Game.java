@@ -6,14 +6,19 @@ import se.martin.game.models.Resident;
 
 
 public class Game {
+    static boolean running = true;
 
+    //Instantiation of resident and burglar
     static Resident resident = new Resident(50, 10, "Resident");
     static Burglar burglar = new Burglar(50, 20, "Burglar");
 
     //Game start method
     public void start() {
         printWelcomeMessage();
-        Room.livingRoom();
+
+        while (running) {
+            Room.livingRoom();
+        }
     }
 
 

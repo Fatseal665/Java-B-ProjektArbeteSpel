@@ -15,7 +15,6 @@ public class Room {
     private static String currentLocation = START;
 
     static Scanner scanner = new Scanner(System.in);
-    static boolean running = true;
     private static boolean fryingPanFound = true;
 
 
@@ -34,22 +33,26 @@ public class Room {
             System.out.println("Exit game X\n");
 
             //Living room menu
-            while (running) {
+            boolean livingRoomMenu = true;
+            while (livingRoomMenu) {
 
                 String userInput = scanner.nextLine().toLowerCase();
-
                 switch (userInput) {
-                    case "living room" -> Room.livingRoom();
-                    case "bedroom" -> Room.bedroom();
-                    case "kitchen" -> Room.kitchen();
-                    case "hallway" -> Room.hallwayFight();
-                    case "office" -> Room.office();
+                    case "living room" -> livingRoom();
+                    case "bedroom" -> bedroom();
+                    case "kitchen" -> kitchen();
+                    case "hallway" -> hallwayFight();
+                    case "office" -> office();
 
                     case "exit" -> {
                         System.out.println("Exiting game...");
+                        livingRoomMenu = false;
                         running = false;
                     }
                     default -> System.out.println("\nInvalid choice. Which room do you want to go to?");
+                }
+                if (!running) {
+                    livingRoomMenu = false;
                 }
             }
 
@@ -81,13 +84,13 @@ public class Room {
                     } else if (!burglar.isConscious()) {
                         System.out.println("Congrats! You managed to knock out the burglar.\nNow find the phone and call the police.\n");
                         fighting = false;
-                        Room.hallway();
+                        hallway();
                     }
 
                 } else if (choice.equals("no")) {
                     System.out.println("\nYou walk back to the living room slowly");
                     fighting = false;
-                    Room.livingRoom();
+                    livingRoom();
 
                 } else {
                     System.out.println("Invalid choice\n");
@@ -95,7 +98,7 @@ public class Room {
             }
 
         } else {
-            Room.hallway();
+            hallway();
         }
     }
 
@@ -121,7 +124,7 @@ public class Room {
                         System.out.println("The burglar must've used a fake key to get in.\n");
                     }
                     case "living room" -> {
-                        Room.livingRoom();
+                        livingRoom();
                         hallwayMenu = false;
                     }
                     default -> System.out.println("Invalid choice\n");
@@ -164,7 +167,7 @@ public class Room {
                     }
                 }
                 case "living room" -> {
-                    Room.livingRoom();
+                    livingRoom();
                     officeMenu = false;
                 }
                 default -> System.out.println("Invalid choice\n");
@@ -192,7 +195,7 @@ public class Room {
             switch (inputBedroom) {
                 case "sit on bed" -> System.out.println("*Sits on bed*\n");
                 case "living room" -> {
-                    Room.livingRoom();
+                    livingRoom();
                     bedroomMenu = false;
                 }
                 default -> System.out.println("Invalid choice\n");
@@ -235,7 +238,7 @@ public class Room {
                     }
                 }
                 case "living room" -> {
-                    Room.livingRoom();
+                    livingRoom();
                     kitchenMenu = false;
                 }
                 default -> System.out.println("Invalid choice\n");
