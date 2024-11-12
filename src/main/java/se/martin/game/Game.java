@@ -32,7 +32,7 @@ public class Game {
 
 
     //Fighting Methods
-    static void executeAttack(Entity Attacker, Entity Defender) {
+    public static void executeAttack(Entity Attacker, Entity Defender) {
         Attacker.punch(Defender);
         System.out.println(Attacker.getRole() + " hits " + Defender.getRole());
 
