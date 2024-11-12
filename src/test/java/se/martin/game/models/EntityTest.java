@@ -32,7 +32,7 @@ class EntityTest {
         resident.punch(burglar);
         burglar.isConscious();
 
-        Assertions.assertTrue(true);
+        Assertions.assertTrue(burglar.isConscious());
     }
 
     @Test
@@ -43,6 +43,6 @@ class EntityTest {
         resident.punch(burglar);
         burglar.isConscious();
 
-        Assertions.assertFalse(false);
+        Assertions.assertFalse(burglar.isConscious());
     }
 }

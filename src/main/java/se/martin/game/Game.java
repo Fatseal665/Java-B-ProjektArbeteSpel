@@ -11,14 +11,14 @@ public class Game {
     static Burglar burglar = new Burglar(50, 20, "Burglar");
 
     //Game start method
-    public static  void start() {
+    public void start() {
         printWelcomeMessage();
         Room.livingRoom();
     }
 
 
     //Welcome and ending messages
-    public static void printWelcomeMessage() {
+    public void printWelcomeMessage() {
         System.out.println("\nYou are chilling in the living room at 1 AM. Suddenly you hear some strange noises.");
         System.out.println("Like drawers opening and closing. What could it be? Let's investigate...\n");
     }
