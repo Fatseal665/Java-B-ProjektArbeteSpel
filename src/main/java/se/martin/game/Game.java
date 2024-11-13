@@ -39,7 +39,7 @@ public class Game {
 
     //Welcome and ending messages
     private void printWelcomeMessage() {
-        System.out.println("\nYou are chilling in the living room at 1 AM. Suddenly you hear some strange noises.");
+        System.out.println("\nYou are relaxing in the living room at 1 AM. Suddenly you hear some strange noises.");
         System.out.println("Like drawers opening and closing. What could it be? Let's investigate...\n");
     }
 
