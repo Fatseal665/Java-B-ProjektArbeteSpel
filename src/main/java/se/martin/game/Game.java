@@ -27,6 +27,7 @@ public class Game {
     static Burglar burglar = new Burglar(50, 20, "Burglar");
     static Scanner scanner = new Scanner(System.in);
 
+
     //Game start method
     public void start() {
         printWelcomeMessage();
