@@ -18,11 +18,10 @@ public class Game {
 
     private static String currentLocation = START;
 
-
     private boolean fryingPanFound = true;
     static boolean running = true;
 
-    //Instantiation of resident and burglar
+    //Instantiations
     static Resident resident = new Resident(50, 10, "Resident");
     static Burglar burglar = new Burglar(50, 20, "Burglar");
     static Scanner scanner = new Scanner(System.in);
@@ -176,11 +175,11 @@ public class Game {
 
                 String inputHallway = scanner.nextLine().toLowerCase();
                 switch (inputHallway) {
-                    case "examine front door" -> {
+                    case "1" -> {
                         System.out.println("The front door is not damaged at all.");
                         System.out.println("The burglar must've used a fake key to get in.\n");
                     }
-                    case "living room" -> {
+                    case "2" -> {
                         livingRoom();
                         hallwayMenu = false;
                     }
@@ -211,9 +210,9 @@ public class Game {
 
             String inputOffice = scanner.nextLine().toLowerCase();
             switch (inputOffice) {
-                case "take a seat in the office chair" -> System.out.println("*Takes a seat*. Feels cozy to sit in it\n");
-                case "look inside drawer" -> System.out.println("There's nothing useful here. Only pens and empty sheets of paper\n");
-                case "use the phone to call someone" -> {
+                case "1" -> System.out.println("*Takes a seat*. Feels cozy to sit in it\n");
+                case "2" -> System.out.println("There's nothing useful here. Only pens and empty sheets of paper\n");
+                case "3" -> {
                     if (burglar.isConscious()) {
                         System.out.println("Who would pick up the phone at this late hour?\n");
 
@@ -223,7 +222,7 @@ public class Game {
                         running = false;
                     }
                 }
-                case "living room" -> {
+                case "4" -> {
                     livingRoom();
                     officeMenu = false;
                 }
@@ -250,8 +249,8 @@ public class Game {
 
             String inputBedroom = scanner.nextLine().toLowerCase();
             switch (inputBedroom) {
-                case "sit on bed" -> System.out.println("*Sits on bed*\n");
-                case "living room" -> {
+                case "1" -> System.out.println("*Sits on bed*\n");
+                case "2" -> {
                     livingRoom();
                     bedroomMenu = false;
                 }
@@ -279,9 +278,9 @@ public class Game {
             String inputKitchen = scanner.nextLine().toLowerCase();
 
             switch (inputKitchen) {
-                case "eat leftovers" -> System.out.println("*Eating*. Kinda tasty not gonna lie\n");
+                case "1" -> System.out.println("*Eating*. Kinda tasty not gonna lie\n");
 
-                case "pick up frying pan" -> {
+                case "2" -> {
                     if (fryingPanFound) {
                         System.out.println("\nYou picked up a frying pan!");
                         System.out.println("A great tool for cooking and a great weapon in times of need.");
@@ -294,7 +293,7 @@ public class Game {
                         System.out.println("You've already picked up the frying pan\n");
                     }
                 }
-                case "living room" -> {
+                case "3" -> {
                     livingRoom();
                     kitchenMenu = false;
                 }
